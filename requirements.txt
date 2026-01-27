@@ -1,0 +1,10 @@
+flask
+fastapi
+uvicorn
+pandas
+scikit-learn
+matplotlib
+seaborn
+python-multipart
+requests
+jinja2

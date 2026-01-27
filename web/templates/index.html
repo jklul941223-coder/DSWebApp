@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Tailwind CSS via CDN for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-8 text-indigo-700">🔍 AI Data Analyst</h1>
+
+        <!-- Upload Section -->
+        <div class="bg-white p-6 rounded shadow mb-8">
+            <h2 class="text-xl font-semibold mb-4">Step 1: Upload CSV</h2>
+            <input type="file" id="csvFile" accept=".csv" class="mb-4 block w-full text-sm text-gray-500
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-full file:border-0
+              file:text-sm file:font-semibold
+              file:bg-indigo-50 file:text-indigo-700
+              hover:file:bg-indigo-100">
+            <button onclick="uploadFile()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                Upload & Analyze
+            </button>
+        </div>
+
+        <!-- Analysis Section -->
+        <div id="analysisSection" class="bg-white p-6 rounded shadow mb-8 hidden">
+            <h2 class="text-xl font-semibold mb-4">Step 2: Data Analysis</h2>
+            <div id="analysisContent" class="overflow-x-auto"></div>
+        </div>
+
+        <!-- Visualization Section -->
+        <div id="visualizationSection" class="bg-white p-6 rounded shadow mb-8 hidden">
+            <h2 class="text-xl font-semibold mb-4">Step 3: Visualization</h2>
+            <div id="plotContent" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+
+        <!-- Modeling Section -->
+        <div id="modelingSection" class="bg-white p-6 rounded shadow mb-8 hidden">
+            <h2 class="text-xl font-semibold mb-4">Step 4: Modeling Code</h2>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Target Variable</label>
+                <select id="targetSelect" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></select>
+                <button onclick="generateCode()" class="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    Generate Code
+                </button>
+            </div>
+            <pre id="codeContent" class="bg-gray-800 text-green-400 p-4 rounded overflow-auto"></pre>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
